@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public float horizontalInput;
-    public float speed;
-    public int xRange = 10;
+    public float speed = 10;
+    public int xRange = 20;
+    public GameObject food;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +25,13 @@ public class playerController : MonoBehaviour
         {
             transform.position = new Vector3(xRange , transform.position.y, transform.position.z);
         }
+
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Instantiate(food, transform.position, food.transform.rotation);
+        }
     }
 }
