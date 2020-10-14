@@ -7,7 +7,9 @@ public class PlayerControllerX : MonoBehaviour
     public bool gameOver;
 
     public float floatForce;
+    public float groundForce;
     private float gravityModifier = 1.5f;
+    private float topY = 15f;
     private Rigidbody playerRb;
 
     public ParticleSystem explosionParticle;
@@ -23,20 +25,28 @@ public class PlayerControllerX : MonoBehaviour
     {
         Physics.gravity *= gravityModifier;
         playerAudio = GetComponent<AudioSource>();
+        playerRb = GetComponent<Rigidbody>();
 
         // Apply a small upward force at the start of the game
         playerRb.AddForce(Vector3.up * 5, ForceMode.Impulse);
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (transform.position.y > topY)
+        {
+            playerRb.AddForce(Vector3.down * floatForce);
+        }
         // While space is pressed and player is low enough, float up
-        if (Input.GetKey(KeyCode.Space) && !gameOver)
+        else if (Input.GetKey(KeyCode.Space) && !gameOver)
         {
             playerRb.AddForce(Vector3.up * floatForce);
         }
+
+
     }
 
     private void OnCollisionEnter(Collision other)
@@ -58,6 +68,12 @@ public class PlayerControllerX : MonoBehaviour
             playerAudio.PlayOneShot(moneySound, 1.0f);
             Destroy(other.gameObject);
 
+        }
+        // ground collision
+        else if (other.gameObject.CompareTag("Ground"))
+        {
+            playerRb.AddForce(Vector3.up * groundForce * floatForce);
+            Debug.Log("herehere");
         }
 
     }
