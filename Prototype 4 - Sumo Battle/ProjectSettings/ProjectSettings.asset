@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 18
-  productGUID: 00000000000000000000000000000000
+  productGUID: a1c163b5bea30ca41b0b35ade449101d
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -630,7 +630,7 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   cloudProjectId: f7c1f2bc-8468-47e3-9165-a720e126357e
   framebufferDepthMemorylessMode: 0
-  projectName: 
+  projectName: Prototype 4 - Sumo Battle
   organizationId: mota9mail
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
