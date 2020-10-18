@@ -122,3 +122,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  playerGoal: {fileID: 2868974656505240621, guid: 02d576b3dfbb1ae42bca5de478640092,
+    type: 3}
