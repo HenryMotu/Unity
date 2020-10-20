@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 18
-  productGUID: 6badbc9ac58406c4db1ff39941ccd643
+  productGUID: 00000000000000000000000000000000
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -630,7 +630,7 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   cloudProjectId: 3435e700-9862-4a13-9ed1-023cd7374891
   framebufferDepthMemorylessMode: 0
-  projectName: Lesson 5.1 - Clicky Mouse
+  projectName: 
   organizationId: mota9mail
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
