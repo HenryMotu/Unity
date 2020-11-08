@@ -1,93 +1,97 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
 public class GamePiece : MonoBehaviour
 {
-    private int y;
-    private int x;
-    private MovablePiece movableComponent;
 
-    public MovablePiece MovableComponent
-    {
-        get
-        {
-            return movableComponent;
-        }
-    }
-    private ColorPiece coloredComponent;
+	private int x;
+	private int y;
 
-    public ColorPiece ColoredComponent
-    {
-        get
-        {
-            return coloredComponent;
-        }
-    }
-    public int Y
-    {
-        get
-        {
-            return y;
-        }
-        set
-        {
-            if (IsMovable())
-            {
-                y = value;
-            }
-        }
-    }
-    public Grid GridRef { get; private set; }
-    public int X
-    {
-        get
-        {
-            return x;
-        }
-        set
-        {
-            if (IsMovable())
-            {
-                x = value;
-            }
-        }
-    }
-    public Grid.PieceType Type { get; private set; }
+	public int X
+	{
+		get { return x; }
+		set
+		{
+			if (IsMovable())
+			{
+				x = value;
+			}
+		}
+	}
 
-    // Start is called before the first frame update
-    void Start()
-    {
+	public int Y
+	{
+		get { return y; }
+		set
+		{
+			if (IsMovable())
+			{
+				y = value;
+			}
+		}
+	}
 
-    }
+	private Grid.PieceType type;
 
-    // Update is called once per frame
-    void Update()
-    {
+	public Grid.PieceType Type
+	{
+		get { return type; }
+	}
 
-    }
+	private Grid grid;
 
-    private void Awake()
-    {
-        movableComponent = GetComponent<MovablePiece>();
-        coloredComponent = GetComponent<ColorPiece>();
-    }
+	public Grid GridRef
+	{
+		get { return grid; }
+	}
 
-    public void Init(int x, int y, Grid grid, Grid.PieceType pieceType)
-    {
-        this.x = x;
-        this.y = y;
-        GridRef = grid;
-        Type = pieceType;
-    }
+	private MovablePiece movableComponent;
 
-    public bool IsMovable()
-    {
-        return movableComponent != null;
-    }
+	public MovablePiece MovableComponent
+	{
+		get { return movableComponent; }
+	}
 
-    public bool IsColored()
-    {
-        return coloredComponent != null;
-    }
+	private ColorPiece colorComponent;
+
+	public ColorPiece ColorComponent
+	{
+		get { return colorComponent; }
+	}
+
+	void Awake()
+	{
+		movableComponent = GetComponent<MovablePiece>();
+		colorComponent = GetComponent<ColorPiece>();
+	}
+
+	// Use this for initialization
+	void Start()
+	{
+
+	}
+
+	// Update is called once per frame
+	void Update()
+	{
+
+	}
+
+	public void Init(int _x, int _y, Grid _grid, Grid.PieceType _type)
+	{
+		x = _x;
+		y = _y;
+		grid = _grid;
+		type = _type;
+	}
+
+	public bool IsMovable()
+	{
+		return movableComponent != null;
+	}
+
+	public bool IsColored()
+	{
+		return colorComponent != null;
+	}
 }
